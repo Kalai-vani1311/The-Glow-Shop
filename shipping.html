@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Animation</title>
+    <style>
+        /* Body styling for full-screen centering */
+        body {
+            margin: 0;
+            background-color: #f0f0f0;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-start; /* Start from left */
+            align-items: center; /* Vertically center */
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        #gif {
+            position: absolute;
+            width: 500px; /* Adjust size as needed */
+            animation: move-left-right 5s linear forwards; /* Slowed to 5 seconds */
+        }
+
+        @keyframes move-left-right {
+            0% {
+                transform: translateX(-100%); /* Start completely off-screen on the left */
+            }
+            100% {
+                transform: translateX(100vw); /* Move completely off-screen to the right */
+            }
+        }
+
+        #content {
+            display: none; /* Hide content initially */
+            text-align: center;
+            font-family: Arial, sans-serif;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- GIF -->
+    <img id="gif" src="./ship.gif" alt="Moving GIF">
+
+    <!-- Content to show after animation -->
+    <div id="content">
+        <h1><i>Shipping & Returns</h1><br>
+        <h3>Shipping Policy</h3>
+        <p>All orders are shipped within 3 working days. Our courier partner may take 5-10 days to deliver the orders to you. During festive offers there can be some delays.</p><br>
+        <h4>Returns and Replacements </h4>
+        <p>We strive to give you the very best shopping experience possible, however we do not accept returns. We are responsible to replace a product if it has reached you damaged or if the wrong product has been sent to you. Do inform us within 48 hours of delivery of the products.</p><br>
+        <p><a style="text-decoration: none;" href="file:///C:/Users/Admin/Desktop/html_project/PFS/The%20Glow%20Shop/shipping.html">Mail us at support@theglowshop.com</a></i></p>
+    </div>
+
+    <script>
+        // After 5 seconds (to match animation duration), hide GIF and show content
+        setTimeout(() => {
+            document.getElementById('gif').style.display = 'none'; // Hide the GIF
+            document.getElementById('content').style.display = 'block'; // Show the content
+        }, 5000); // Match animation duration
+    </script>
+    
+</body>
+</html>
