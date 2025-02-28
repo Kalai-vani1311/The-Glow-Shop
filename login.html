@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, white, blue);
+    }
+
+    .container {
+      display: flex;
+      width: 80%;
+      height: 70%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    /* Left Section */
+    .welcome-section {
+      flex: 1;
+      background-image: url(./log3.img); /* Ensure the image path is correct */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 40px;
+      height: 100%;
+    }
+
+    .welcome-section h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .welcome-section p {
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Right Section */
+    .login-section {
+      flex: 1;
+      background-color: white;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .form-group input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+      outline: none;
+    }
+
+    .btn {
+      width: 50%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .signup-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left Section -->
+    <div class="welcome-section">
+      <h1>Welcome Back!</h1>
+      <p>
+        We’re excited to see you again. Log in to access your account and stay updated with our latest offers, features, and much more.
+      </p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="login-section">
+      <h2>Login</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <!-- Blue centered login button -->
+        <center><button type="submit" class="btn"><a style="text-decoration: none;"href="C:\Users\Admin\Desktop\html_project\PFS\skincare.html">Log In</a></button>
+      </center>
+    </form>
+      <div class="signup-link">
+        Don't have an account? <a style="text-decoration: none;" href="C:\Users\Admin\Desktop\html_project\PFS\Css_glow\signup.html">Sign up</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Store user credentials in localStorage
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Check if both fields are filled
+      if (email && password) {
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('userPassword', password);
+
+        alert('Login successful!');
+        // Redirect to another page (example: dashboard.html)
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Please fill out both fields.');
+      }
+    });
+
+    // Pre-fill email if saved in localStorage
+    window.onload = function () {
+      const savedEmail = localStorage.getItem('userEmail');
+      if (savedEmail) {
+        document.getElementById('email').value = savedEmail;
+      }
+    };
+  </script>
+</body>
+</html>

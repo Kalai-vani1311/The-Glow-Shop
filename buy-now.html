@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Now</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: linear-gradient(to right, #fff, #e6e6e6);
+    }
+    .buy-now-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: #f9f9f9;
+    }
+    .buy-now-container h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .product-details {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .product-details p {
+      margin: 10px 0;
+    }
+    .checkout-button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .checkout-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="buy-now-container">
+    <h1>Buy Now</h1>
+    <div class="product-details">
+      <!-- Product details will be dynamically inserted here -->
+      <p id="product-name"></p>
+      <p id="product-price"></p>
+    </div>
+    <button class="checkout-button">Proceed to Checkout</button>
+  </div>
+
+  <script>
+    // Parse URL parameters to get product details
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('title') || 'Unknown Product';
+    const productPrice = urlParams.get('price') || 'Unknown Price';
+
+    // Display product details on the page
+    document.getElementById('product-name').textContent = `Product: ${productName}`;
+    document.getElementById('product-price').textContent = `Price: ${productPrice}`;
+
+    // Proceed to checkout (dummy functionality)
+    document.querySelector('.checkout-button').addEventListener('click', () => {
+      alert('Redirecting to payment gateway...');
+      // Redirect to a payment gateway page or confirmation page
+      window.location.href = '/payment-gateway'; // Replace with your payment gateway URL
+    });
+  </script>
+</body>
+</html>
